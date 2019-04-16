@@ -1,3 +1,7 @@
+作業1:
+
+
+作業2:
 自由載客車隊:優勢:相比Uber有更多經營用車，可隨時採點等待
             劣勢:因為有車子的所有權，必須負擔很重的汽車稅等成本，在淡季時會使車隊有沉重的成本壓力
 1.核心問題: 
@@ -10,4 +14,36 @@
 4.你要回答的問題，其如何評估:
   可針對較多客源的地點進行蹲點，以增加載客的比例，增加單位營收。放棄部分載客數據較差的地區，僅在數據稍微不差的地點進行設點，
   可做到在不大幅提高成本的情況下，保持生意差區域的服務。
-  評估:檢測車隊的總體淨收入以及總體營業區塊(若營業區塊過小，可能造成客人過度外流)
+  評估:檢測車隊的總體淨收入、總體營業區塊(若營業區塊過小，可能造成客人過度外流)、載客人次等
+
+作業3:
+import numpy as np
+import matplotlib.pyplot as plt
+def mean_squared_error(y,y_hat):
+    mae = (y - y_hat)**2
+    mae = sum(mae)/100
+    return mae
+    """
+    請完成這個 Function 後往下執行
+    """
+w = 3
+b = 0.5
+
+x_lin = np.linspace(0, 100, 101)
+
+y = (x_lin + np.random.randn(101) * 5) * w + b
+
+plt.plot(x_lin, y, 'b.', label = 'data points')
+plt.title("Assume we have data points")
+plt.legend(loc = 2)
+plt.show()
+
+y_hat = x_lin * w + b
+plt.plot(x_lin, y, 'b.', label = 'data')
+plt.plot(x_lin, y_hat, 'r-', label = 'prediction')
+plt.title("Assume we have data points (And the prediction)")
+plt.legend(loc = 2)
+plt.show()
+
+MSE = mean_squared_error(y, y_hat)
+print("The Mean squared error is %.3f" % (MSE))
